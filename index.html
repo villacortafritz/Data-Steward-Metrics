@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Data Steward Metrics</title>
+  <link rel="stylesheet" href="./styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="dot"></span>
+      <div>
+        <div class="brand-title">Data Steward Metrics</div>
+        <div class="brand-sub">Campaign performance dashboard</div>
+      </div>
+    </div>
+    <button id="refreshBtn" class="btn">Refresh</button>
+  </header>
+
+  <main class="shell">
+    <aside class="sidebar">
+      <div class="card side-card">
+        <div class="side-head">
+          <div class="side-title">Tabs</div>
+          <div id="campaignCount" class="pill">0 campaigns</div>
+        </div>
+
+        <div id="tabs" class="tabs"></div>
+
+        <div class="side-note" id="modeNote">
+          Local mode: files are read from <code>/campaigns</code> (or <code>/Campaigns</code>) using <code>manifest.json</code>.
+          Add a new <code>.xlsx</code> file, update <code>manifest.json</code>, then refresh.
+        </div>
+
+        <div class="side-footer">
+          <div class="footer-title">Made with Fritz for Paylocity Data Steward Team • © 2026</div>
+          <div class="footer-sub">Aggregated metrics only — no account names or IDs displayed.</div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="content">
+      <div id="banner" class="banner hidden"></div>
+      <div id="view"></div>
+    </section>
+  </main>
+
+  <script src="./dataLoader.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
